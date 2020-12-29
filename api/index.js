@@ -1,16 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-
-const app = express();
+const routes = require('./routes');
 const port = 3000;
+const app = express();
 
-app.use(bodyParser.json());
-
-app.get('/',
-    (req, res) => res
-        .status(200)
-        .send({ message: 'Welcome the API ORM Sequelize' })
-);
+routes(app);
 
 app.listen(port, () => console.log(`Server listening in ${port}`));
 
