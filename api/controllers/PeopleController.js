@@ -1,7 +1,7 @@
 const database = require('../models');
 
 class PeopleController {
-    static async findAll(req, res) {
+    static async getAll(req, res) {
         try {
             const people = await database.People.findAll();
     
