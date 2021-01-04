@@ -33,6 +33,20 @@ class PeopleController {
                 .json(error.message);
         }
     }
+
+    static async create(req, res) {
+        const person = req.body;
+
+        try {
+            const newPerson = await database.People.create(person);
+
+            return res.status(201).json(newPerson);
+        } catch (error) {
+            return res
+                .status(500)
+                .json(error.message);
+        }
+    }
 }
 
 module.exports = PeopleController;
