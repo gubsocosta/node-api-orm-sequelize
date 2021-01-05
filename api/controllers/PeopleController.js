@@ -5,13 +5,9 @@ class PeopleController {
         try {
             const people = await database.People.findAll();
     
-            return res
-                .status(200)
-                .json(people);
+            return res.status(200).json(people);
         } catch(error) {
-            return res
-                .status(500)
-                .json(error.message);
+            return res.status(500).json(error.message); 
         }
     }
 
@@ -24,13 +20,9 @@ class PeopleController {
                     where: { id: Number(id) }
                 });
             
-            return res
-                .status(200)
-                .json(person);
+            return res.status(200).json(person);
         } catch (error) {
-            return res
-                .status(500)
-                .json(error.message);
+            return res.status(500).json(error.message); 
         }
     }
 
@@ -42,9 +34,45 @@ class PeopleController {
 
             return res.status(201).json(newPerson);
         } catch (error) {
-            return res
-                .status(500)
-                .json(error.message);
+            return res.status(500).json(error.message);
+        }
+    }
+
+    static async update(req, res) {
+        const { id } = req.params;
+
+        try {
+            await database
+                .People
+                .update(
+                    req.body,
+                    {
+                        where: { id: id }
+                    }
+                );
+            const person = await database
+                .People
+                .findOne({
+                    where: { id: id}
+                })
+            
+            return res.status(200).json(person);
+        } catch (error) {
+            return res.status(500).json(error.message); 
+        }
+    }
+
+    static async delete(req, res) {
+        const { id } = req.params;
+
+        try {
+            await database.People.destroy({
+                where: { id: id }
+            });
+
+            return res.status(204).json();
+        } catch (error) {
+            return res.status(500).json(error.message); 
         }
     }
 }

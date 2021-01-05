@@ -9,7 +9,7 @@ router.route('/people')
 
 router.route('/people/:id')
     .get(PeopleController.findById)
-    // .update(PeopleController.findById)
-    // .delete(PeopleController.findById);
+    .put(PeopleController.update)
+    .delete(PeopleController.delete);
 
 module.exports = router;
