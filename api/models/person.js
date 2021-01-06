@@ -7,7 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.STRING
   }, {});
   Person.associate = function(models) {
-    // associations can be defined here
+    Person.hasMany(models.Class, {
+      foreignKey: 'teacherId'
+    });
+    Person.hasMany(models.Enrollment, {
+      foreignKey: 'studentId'
+    });
   };
   return Person;
 };
