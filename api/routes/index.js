@@ -1,4 +1,7 @@
 const bodyParser = require('body-parser');
+
+const groups = require('./groupsRoute');
+const levels = require('./levelsRoute');
 const people = require('./peopleRoute');
 
 module.exports = app => {
@@ -10,5 +13,7 @@ module.exports = app => {
             .send('Node API with Sequelize ORM v1.0.0');
     });
 
+    app.use(groups);
+    app.use(levels);
     app.use(people);
 };

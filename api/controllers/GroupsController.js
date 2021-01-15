@@ -1,11 +1,11 @@
 const database = require('../models');
 
-class ClassesController {
+class GroupsController {
     static async getAll(req, res) {
         try {
-            const classes = await database.Classes.findAll();
+            const groups = await database.Groups.findAll();
     
-            return res.status(200).json(classes);
+            return res.status(200).json(groups);
         } catch(error) {
             return res.status(500).json(error.message); 
         }
@@ -14,25 +14,25 @@ class ClassesController {
     static async findById(req, res) {
         const { id } = req.params;
         try {
-            const classroom = await database
-                .Classes
+            const group = await database
+                .Groups
                 .findOne({ 
                     where: { id: Number(id) }
                 });
             
-            return res.status(200).json(classroom);
+            return res.status(200).json(group);
         } catch (error) {
             return res.status(500).json(error.message); 
         }
     }
 
     static async create(req, res) {
-        const classroom = req.body;
+        const group = req.body;
 
         try {
-            const newClassroom = await database.Classes.create(classroom);
+            const newGroup = await database.Groups.create(group);
 
-            return res.status(201).json(newClassroom);
+            return res.status(201).json(newGroup);
         } catch (error) {
             return res.status(500).json(error.message);
         }
@@ -43,20 +43,20 @@ class ClassesController {
 
         try {
             await database
-                .Classes
+                .Groups
                 .update(
                     req.body,
                     {
                         where: { id: id }
                     }
                 );
-            const classroom = await database
-                .Classes
+            const group = await database
+                .Groups
                 .findOne({
                     where: { id: id}
                 })
             
-            return res.status(200).json(classroom);
+            return res.status(200).json(group);
         } catch (error) {
             return res.status(500).json(error.message); 
         }
@@ -66,7 +66,7 @@ class ClassesController {
         const { id } = req.params;
 
         try {
-            await database.Classes.destroy({
+            await database.Groups.destroy({
                 where: { id: id }
             });
 
@@ -77,4 +77,4 @@ class ClassesController {
     }
 }
 
-module.exports = ClassesController;
+module.exports = GroupsController;

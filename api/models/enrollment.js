@@ -1,15 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Enrollment = sequelize.define('Enrollment', {
+  const Enrollment = sequelize.define('Enrollments', {
     status: DataTypes.STRING
   }, {});
   Enrollment.associate = function(models) {
-    Enrollment.belongsTo(models.Person, {
+    Enrollment.belongsTo(models.People, {
       foreignKey: 'teacherId'
     });
 
-    Enrollment.belongsTo(models.Class, {
-      foreignKey: 'classId'
+    Enrollment.belongsTo(models.Groups, {
+      foreignKey: 'groupId'
     });
   };
   return Enrollment;

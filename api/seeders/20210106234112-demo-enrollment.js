@@ -6,42 +6,42 @@ module.exports = {
       {
         status: "done",
         studentId: 1,
-        classId: 1,
+        groupId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         status: "done",
         studentId: 2,
-        classId: 1,
+        groupId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         status: "done",
         studentId: 3,
-        classId: 2,
+        groupId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         status: "done",
         studentId: 4,
-        classId: 3,
+        groupId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         status: "canceled",
         studentId: 1,
-        classId: 2,
+        groupId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         status: "canceled",
         studentId: 2,
-        classId: 2,
+        groupId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }

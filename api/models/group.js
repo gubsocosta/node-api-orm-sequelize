@@ -1,19 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Class = sequelize.define('Class', {
+  const Class = sequelize.define('Groups', {
     startAt: DataTypes.DATEONLY
   }, {});
   Class.associate = function(models) {
-    Class.belongsTo(models.Person, {
+    Class.belongsTo(models.People, {
       foreignKey: 'studentId'
     });
 
-    Class.belongsTo(models.Level, {
+    Class.belongsTo(models.Levels, {
       foreignKey: 'levelId'
     });
 
-    Class.hasMany(models.Enrollment, {
-      foreignKey: 'classId'
+    Class.hasMany(models.Enrollments, {
+      foreignKey: 'groupId'
     });
   };
   return Class;

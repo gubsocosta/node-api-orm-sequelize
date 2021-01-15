@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.STRING
   }, {});
   Person.associate = function(models) {
-    Person.hasMany(models.Class, {
+    Person.hasMany(models.Groups, {
       foreignKey: 'teacherId'
     });
-    Person.hasMany(models.Enrollment, {
+    Person.hasMany(models.Enrollments, {
       foreignKey: 'studentId'
     });
   };
