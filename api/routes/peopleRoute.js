@@ -12,4 +12,11 @@ router.route('/people/:id')
     .put(PeopleController.update)
     .delete(PeopleController.delete);
 
+router.route('/people/:studentId/enrollments')
+    .post(PeopleController.createEnrollment);
+
+router.route('/people/:studentId/enrollments/:enrollmentId')
+    .get(PeopleController.findEnrollmentById)
+    .put(PeopleController.updateEnrollment);
+
 module.exports = router;

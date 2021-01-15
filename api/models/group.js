@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Class.associate = function(models) {
     Class.belongsTo(models.People, {
-      foreignKey: 'studentId'
+      foreignKey: 'teacherId'
     });
 
     Class.belongsTo(models.Levels, {

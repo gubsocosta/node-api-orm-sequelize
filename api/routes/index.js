@@ -6,6 +6,7 @@ const people = require('./peopleRoute');
 
 module.exports = app => {
     app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
 
     app.get('/', (req, res) => {
         res
@@ -13,7 +14,5 @@ module.exports = app => {
             .send('Node API with Sequelize ORM v1.0.0');
     });
 
-    app.use(groups);
-    app.use(levels);
-    app.use(people);
+    app.use(groups, levels, people);
 };

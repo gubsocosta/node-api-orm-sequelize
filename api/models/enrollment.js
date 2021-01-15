@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Enrollment.associate = function(models) {
     Enrollment.belongsTo(models.People, {
-      foreignKey: 'teacherId'
+      foreignKey: 'studentId'
     });
 
     Enrollment.belongsTo(models.Groups, {
